@@ -3,10 +3,14 @@ from pyglet.window import Window, key
 from pyglet.shapes import Triangle, Line, Star, Circle
 from pyglet.app import run
 from pyglet.graphics import Batch
+from pyglet.font import add_file
+
 import numpy as np
 import random
 import time
 import sys
+
+add_file('Monocraft.otf')
 
 WIDTH = 1300
 HEIGHT = 700
@@ -88,10 +92,9 @@ class Nave:
 
 naves = [Nave(ventana.width // 2 - 200, ventana.height // 2 - 100), Nave(ventana.width // 2, ventana.height // 2), Nave(ventana.width // 2 + 200, ventana.height // 2 - 100)]
 
-player = pyglet.media.Player()
-music = pyglet.media.load('musica.mp3')
-player.queue(music)
-player.play()
+
+musica = pyglet.resource.media('musica.mp3')
+musica.play()
 
 
 @ventana.event
@@ -123,7 +126,7 @@ label = pyglet.text.Label("Count: " + str(count), font_name='Monocraft', font_si
                           x=100, y=ventana.height - 100,
                           anchor_x='center', anchor_y='center',
                           color=(255,255,255,255))
-label2 = pyglet.text.Label("Martín E. Bravo @UChile ", font_name='Monocraft', font_size=20,
+label2 = pyglet.text.Label("Naves y Estrellas", font_name='Monocraft', font_size=20,
                           x=ventana.width-250, y=ventana.height - 100,
                           anchor_x='center', anchor_y='center',
                           color=(255,255,255,255))
